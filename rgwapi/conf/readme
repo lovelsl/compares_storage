@@ -1,0 +1,19 @@
+
+
+
+s3key.conf  记录ceph集群的访问信息
+sys.conf    记录将要扫描的文件夹，该文件夹中所有文件将被上传到ceph
+
+
+
+data/bucket.data
+文件格式:
+sha256,filename
+
+filename:获取样本时的完整路径名
+sha256:样本sha256
+记录所有传输到ceph中的样本
+
+buckets虽然能获取写进取的所有key(sha256)，但是数据量过大时，如何分段获取是个问题
+该问题的出现->最好将写入ceph的sha256，单独存到mysql
+
